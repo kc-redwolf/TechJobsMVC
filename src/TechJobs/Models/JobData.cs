@@ -34,7 +34,7 @@ namespace TechJobs.Models
 
                 if (!values.Contains(aValue))
                 {
-                    values.Add(aValue);
+                    values.Add(aValue.ToUpperInvariant());
                 }
             }
 
@@ -60,7 +60,7 @@ namespace TechJobs.Models
                 {
                     string aValue = row[key];
 
-                    if (aValue.ToLower().Contains(value.ToLower()))
+                    if (aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
                     {
                         jobs.Add(row);
 
@@ -91,7 +91,7 @@ namespace TechJobs.Models
             {
                 string aValue = row[column];
 
-                if (aValue.ToLower().Contains(value.ToLower()))
+                if (aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
                 {
                     jobs.Add(row);
                 }

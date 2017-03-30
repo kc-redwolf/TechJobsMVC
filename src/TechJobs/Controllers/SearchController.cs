@@ -20,20 +20,30 @@ namespace TechJobs.Controllers
         {
             ViewBag.columns = ListController.columnChoices;
             ViewBag.title = "Search";
-            
 
-            if (searchType.Equals("all"))
+               if (searchType.Equals("all") && searchTerm.Equals("all"))
+
             {
-                ViewBag.jobs = JobData.FindByValue(searchTerm);
-            }
-            else
-            {
-                ViewBag.jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
-            }
+                if (!string.IsNullOrEmpty(searchTerm))
 
+                {
+                    ViewBag.jobs = JobData.FindAll();
+                }
+
+            }
+                if (searchType.Equals("all") && !searchTerm.Equals("all"))
+                 {
+                    ViewBag.jobs = JobData.FindByValue(searchTerm);
+                }
+                if (!searchType.Equals("all"))
+                 {
+                    ViewBag.jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+                }
+
+
+                return View("Index");
             
-
-            return View("Index");
+            
         }
 
     }

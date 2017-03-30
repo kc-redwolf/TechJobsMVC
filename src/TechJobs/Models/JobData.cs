@@ -58,18 +58,18 @@ namespace TechJobs.Models
 
                 foreach (string key in row.Keys)
                 {
-                    string aValue = row[key];
+                        string aValue = row[key];
 
-                    if (aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
-                    {
-                        jobs.Add(row);
+                        if (!string.IsNullOrEmpty(value) && aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
+                        {
+                            jobs.Add(row);
 
-                        // Finding one field in a job that matches is sufficient
-                        break;
+                            // Finding one field in a job that matches is sufficient
+                            break;
+                        }
                     }
                 }
-            }
-
+            
             return jobs;
         }
 
@@ -91,7 +91,7 @@ namespace TechJobs.Models
             {
                 string aValue = row[column];
 
-                if (aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
+                if (!string.IsNullOrEmpty(value) && aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
                 {
                     jobs.Add(row);
                 }

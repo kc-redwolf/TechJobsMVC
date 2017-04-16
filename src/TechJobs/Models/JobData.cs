@@ -89,6 +89,7 @@ namespace TechJobs.Models
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
+
                 string aValue = row[column];
 
                 if (!string.IsNullOrEmpty(value) && aValue.ToUpperInvariant().Contains(value.ToUpperInvariant()))
